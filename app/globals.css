@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0d0d0f;
+  --foreground: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.5s ease;
+}
+
+/* NORMAL WORLD - Clean Modern */
+body {
+  color: var(--foreground);
+  background: linear-gradient(135deg, #0d0d0f 0%, #151518 50%, #1a1a2e 100%);
+  font-family: var(--font-inter, sans-serif);
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+  position: relative;
+}
+
+/* Normal World Background Gradient */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(74, 158, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(123, 104, 238, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Minimal noise texture for Normal World */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjkiIG51bU9jdGF2ZXM9IjQiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIwLjAxIi8+PC9zdmc+");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  transition: opacity 0.5s ease;
+}
+
+/* UPSIDE DOWN MODE - True Stranger Things Palette */
+[data-theme="upside-down"] {
+  --bg-base: #010102;
+  --bg-deep-purple: #0a0011;
+  --bg-crimson-dark: #320010;
+  --bg-crimson-glow: #7f0e1f;
+  --surface: #0c000f;
+  --surface-soft: #100010;
+  --surface-border: #7f0e1f;
+  --text-primary: #f0f0f0;
+  --text-secondary: #c2a4d0;
+  --text-muted: #8b688f;
+  --text-danger: #ff5572;
+  --accent-primary: #ff1b2d;
+  --accent-secondary: #5e1f6e;
+  --accent-blue: #2c1ea0;
+  --glow-soft: rgba(255, 27, 45, 0.35);
+  --glow-strong: rgba(255, 27, 45, 0.55);
+  --fog-red: rgba(150, 15, 30, 0.25);
+  --fog-purple: rgba(60, 10, 80, 0.25);
+  --spore-red: rgba(255, 27, 45, 0.25);
+  --spore-blue: rgba(44, 30, 160, 0.23);
+  --spore-purple: rgba(94, 31, 110, 0.25);
+  /* Legacy aliases for compatibility */
+  --accent-glow-soft: var(--glow-soft);
+  --accent-glow-strong: var(--glow-strong);
+}
+
+[data-theme="upside-down"] body {
+  background: radial-gradient(
+    circle at center,
+    #7f0e1f 0%,
+    #320010 25%,
+    #0a0011 55%,
+    #010102 100%
+  );
+  color: var(--text-primary);
+}
+
+[data-theme="upside-down"] body::before {
+  background: 
+    radial-gradient(circle, var(--fog-red) 0%, transparent 60%),
+    radial-gradient(circle, var(--fog-purple) 0%, transparent 60%);
+  opacity: 0.25;
+  mix-blend-mode: lighten;
+}
+
+[data-theme="upside-down"] body::after {
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjkiIG51bU9jdGF2ZXM9IjQiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+");
+}
+
+/* Fog Layer for Upside Down - Layered Motion */
+[data-theme="upside-down"] body {
+  position: relative;
+}
+
+[data-theme='upside-down'] .fog-layer {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(150,15,30,0.3), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(60,10,80,0.35), transparent 65%);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  animation: fogDrift1 30s ease-in-out infinite;
+  position: relative;
+}
+
+[data-theme='upside-down'] .fog-layer::before,
+[data-theme='upside-down'] .fog-layer::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 10% 70%, rgba(150,15,30,0.22), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.25;
+}
+
+[data-theme='upside-down'] .fog-layer::before {
+  animation: fogDrift2 45s ease-in-out infinite;
+}
+
+[data-theme='upside-down'] .fog-layer::after {
+  animation: fogDrift3 60s ease-in-out infinite;
+}
+
+@keyframes fogDrift1 {
+  0%   { transform: translate3d(-30px, -10px, 0); }
+  50%  { transform: translate3d(20px, 20px, 0); }
+  100% { transform: translate3d(-30px, -10px, 0); }
+}
+
+@keyframes fogDrift2 {
+  0%   { transform: translate3d(15px, 10px, 0); }
+  50%  { transform: translate3d(-15px, -10px, 0); }
+  100% { transform: translate3d(15px, 10px, 0); }
+}
+
+@keyframes fogDrift3 {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(10px, -20px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme='upside-down'] .fog-layer,
+  [data-theme='upside-down'] .fog-layer::before,
+  [data-theme='upside-down'] .fog-layer::after {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Custom Scrollbar - Normal World */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0f;
+  transition: background 0.5s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a9eff;
+  border-radius: 4px;
+  transition: background 0.5s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6bb0ff;
+}
+
+/* Upside Down Scrollbar */
+[data-theme="upside-down"] ::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+[data-theme="upside-down"] ::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow-soft);
+}
+
+[data-theme="upside-down"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-danger);
+  box-shadow: 0 0 15px var(--accent-glow-strong);
+}
+
+/* Hide System Cursor in Upside Down Mode for the Entire Document */
+[data-theme='upside-down'],
+[data-theme='upside-down'] * {
+  cursor: none !important;
+}
+
+/* Monster Cursor - No Transition on Transform for Instant Response */
+.monster-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  transform: translate3d(-100px, -100px, 0);
+  pointer-events: none;
+  will-change: transform;
+  z-index: 9999;
+  /* no transition: transform here, animation is handled in JS */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Chromatic Aberration for Upside Down */
+[data-theme="upside-down"] .chromatic-hover {
+  transition: filter 0.2s ease;
+}
+
+[data-theme="upside-down"] .chromatic-hover:hover {
+  filter: drop-shadow(-2px 0 0 var(--accent-primary)) 
+          drop-shadow(2px 0 0 var(--accent-secondary));
+}
+
+/* Center glow - reduced brightness */
+[data-theme="upside-down"] .center-glow {
+  background: radial-gradient(
+    circle,
+    rgba(127, 14, 31, 0.45) 0%,
+    transparent 60%
+  );
+  filter: blur(60px);
+}
+
+/* Global Upside-Down Heading Style - Reusable for all titles */
+[data-theme='upside-down'] .upside-down-heading {
+  color: #ff3345;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  text-shadow:
+    0 0 14px rgba(255, 51, 69, 0.9),
+    0 0 32px rgba(255, 51, 69, 0.55);
+}
+
+[data-theme='normal'] .upside-down-heading,
+:not([data-theme]) .upside-down-heading {
+  color: #f5f5f9;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Subtitle & Body Text - Cooler, Not Red */
+[data-theme='upside-down'] .hero-subtitle,
+[data-theme='upside-down'] .hero-body-text {
+  color: #e3e3f0;
+  text-shadow: none;
+}
+
+/* Card Backgrounds - Darker and More Readable */
+[data-theme='upside-down'] .card {
+  background: rgba(5, 0, 10, 0.9);
+  border: 1px solid rgba(255, 27, 45, 0.4);
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(255, 27, 45, 0.25);
+  color: #f3f3f6;
+  backdrop-filter: blur(6px);
+}
+
+/* Card titles now use upside-down-heading class */
+
+[data-theme='upside-down'] .card-body {
+  color: #dedeea;
+}
+
+/* Text Glitch Animation for Upside Down */
+@keyframes textGlitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+[data-theme="upside-down"] .glitch-text {
+  animation: textGlitch 0.3s ease-in-out infinite;
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--glow-soft), 0 0 20px var(--glow-soft);
+}
+
+/* Text Bleed/Drip Effect for Upside Down */
+@keyframes textBleed {
+  0% {
+    text-shadow: 
+      0 0 10px var(--glow-soft),
+      0 0 20px var(--glow-soft),
+      0 2px 0 var(--glow-soft);
+  }
+  50% {
+    text-shadow: 
+      0 0 15px var(--glow-strong),
+      0 0 30px var(--glow-strong),
+      0 4px 2px var(--glow-soft),
+      0 6px 4px var(--glow-soft);
+  }
+  100% {
+    text-shadow: 
+      0 0 10px var(--glow-soft),
+      0 0 20px var(--glow-soft),
+      0 2px 0 var(--glow-soft);
+  }
+}
+
+@keyframes textShake {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-1px); }
+  50% { transform: translateY(1px); }
+  75% { transform: translateY(-1px); }
+}
+
+[data-theme="upside-down"] .bleed-text {
+  animation: textBleed 3s ease-in-out infinite;
+}
+
+[data-theme="upside-down"] .shake-on-view {
+  animation: textShake 0.3s ease-in-out;
+}
+
+/* Random Flicker for Navbar */
+@keyframes randomFlicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.3; }
+  20% { opacity: 1; }
+  30% { opacity: 0.7; }
+  40% { opacity: 1; }
+  50% { opacity: 0.5; }
+  60% { opacity: 1; }
+  70% { opacity: 0.8; }
+  80% { opacity: 1; }
+  90% { opacity: 0.4; }
+}
+
+[data-theme="upside-down"] .flicker-bulbs {
+  animation: randomFlicker 0.5s ease-in-out infinite;
+}
+
+/* Theme Transition Overlay */
+.theme-transition {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.theme-transition.active {
+  opacity: 0.8;
+}
+
+/* Vignette Overlay - Cinematic framing effect */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.25) 60%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vignette-overlay {
+    display: none;
+  }
+}
+
