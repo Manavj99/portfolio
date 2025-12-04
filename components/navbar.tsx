@@ -166,7 +166,6 @@ export function Navbar() {
                     className={`absolute -bottom-1 left-0 right-0 h-0.5 ${activeIndicator} ${
                       isUpsideDown ? "shadow-[0_0_10px_var(--glow-strong)]" : ""
                     }`}
-                    initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
