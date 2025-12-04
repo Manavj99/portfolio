@@ -1,0 +1,61 @@
+═══════════════════════════════════════════════════════════════
+  PORTFOLIO DEPLOYMENT - NEXT STEPS
+═══════════════════════════════════════════════════════════════
+
+✅ STEP 1: COMPLETE - Code committed locally!
+
+📤 STEP 2: Push to GitHub
+───────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/new
+2. Create a new repository:
+   - Name: portfolio (or any name)
+   - Make it Public
+   - DO NOT check "Initialize with README"
+   - Click "Create repository"
+
+3. Copy the repository URL (shown on GitHub)
+
+4. Run these commands (replace URL with yours):
+   git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+   git push -u origin main
+
+🚀 STEP 3: Deploy to Vercel
+───────────────────────────────────────────────────────────────
+
+1. Go to: https://vercel.com
+2. Sign in with GitHub
+3. Click "Add New Project"
+4. Import your GitHub repository
+5. Click "Deploy" (Vercel auto-configures everything)
+6. Wait 2-3 minutes
+7. Your site is LIVE! 🎉
+
+📧 STEP 4: Set Up Email
+───────────────────────────────────────────────────────────────
+
+1. Go to: https://resend.com
+2. Sign up (free)
+3. Verify your email
+4. Go to: https://resend.com/api-keys
+5. Create API key, copy it
+
+6. In Vercel:
+   - Go to Settings → Environment Variables
+   - Add these 3 variables:
+     * RESEND_API_KEY = (paste your key)
+     * CONTACT_EMAIL = manavj99@gmail.com
+     * RESEND_FROM_EMAIL = onboarding@resend.dev
+   - IMPORTANT: Redeploy after adding variables!
+
+✅ STEP 5: Test
+───────────────────────────────────────────────────────────────
+
+1. Visit your live site
+2. Submit contact form
+3. Check email at manavj99@gmail.com
+
+═══════════════════════════════════════════════════════════════
+For detailed instructions, see: DEPLOY_STEPS.md
+═══════════════════════════════════════════════════════════════
+

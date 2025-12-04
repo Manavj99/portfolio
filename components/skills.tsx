@@ -108,8 +108,8 @@ function SkillCard({ skill, index }: { skill: typeof skills[0]; index: number })
           <div className="w-full bg-gray-800 rounded-full h-2 mb-3 overflow-hidden">
             <motion.div
               className="h-full bg-gradient-to-r from-neon-red to-neon-blue"
-              initial={motionEnabled ? { width: 0 } : false}
-              whileInView={motionEnabled ? { width: `${(skill.level / 5) * 100}%` } : false}
+              initial={motionEnabled ? { width: 0 } : undefined}
+              whileInView={motionEnabled ? { width: `${(skill.level / 5) * 100}%` } : undefined}
               viewport={{ once: true }}
               transition={motionEnabled ? { duration: 1, delay: index * 0.1 } : undefined}
             />
@@ -118,8 +118,8 @@ function SkillCard({ skill, index }: { skill: typeof skills[0]; index: number })
           <p className={`text-sm mb-3 ${theme === "upside-down" ? "text-[var(--text-secondary)]" : "text-gray-400"}`}>{skill.description}</p>
 
           <motion.div
-            initial={motionEnabled ? { opacity: 0, y: 10 } : false}
-            animate={motionEnabled && isHovered ? { opacity: 1, y: 0 } : motionEnabled ? { opacity: 0, y: 10 } : {}}
+            initial={motionEnabled ? { opacity: 0, y: 10 } : undefined}
+            animate={motionEnabled && isHovered ? { opacity: 1, y: 0 } : motionEnabled ? { opacity: 0, y: 10 } : undefined}
             transition={motionEnabled ? { duration: 0.2 } : undefined}
             className={`text-xs ${theme === "upside-down" ? "text-[var(--accent-primary)]" : "text-neon-blue"}`}
           >

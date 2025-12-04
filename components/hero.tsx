@@ -60,8 +60,8 @@ export function Hero() {
           className="absolute inset-0"
           style={{ background: "var(--bg-base)" }}
           variants={motionEnabled ? heroBackground : undefined}
-          initial={motionEnabled ? "hidden" : false}
-          animate={motionEnabled ? "show" : false}
+          initial={motionEnabled ? "hidden" : undefined}
+          animate={motionEnabled ? "show" : undefined}
         >
           <motion.div
             className="absolute inset-0 center-glow"
@@ -82,8 +82,8 @@ export function Hero() {
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-[#0d0d0f] via-[#151518] to-[#1a1a2e]"
           variants={motionEnabled ? heroBackground : undefined}
-          initial={motionEnabled ? "hidden" : false}
-          animate={motionEnabled ? "show" : false}
+          initial={motionEnabled ? "hidden" : undefined}
+          animate={motionEnabled ? "show" : undefined}
         >
           <motion.div
             className="absolute inset-0 opacity-20"

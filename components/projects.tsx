@@ -227,9 +227,9 @@ function ProjectModal({
     <>
       <motion.div
         variants={motionEnabled ? modalBackdrop : undefined}
-        initial={motionEnabled ? "hidden" : false}
-        animate={motionEnabled ? "show" : false}
-        exit={motionEnabled ? "exit" : false}
+        initial={motionEnabled ? "hidden" : undefined}
+        animate={motionEnabled ? "show" : undefined}
+        exit={motionEnabled ? "exit" : undefined}
         className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         onClick={onClose}
       >
@@ -409,16 +409,16 @@ function ProjectModal({
         {showDeepDive && (
           <motion.div
             variants={motionEnabled ? modalBackdrop : undefined}
-            initial={motionEnabled ? "hidden" : false}
-            animate={motionEnabled ? "show" : false}
-            exit={motionEnabled ? "exit" : false}
+            initial={motionEnabled ? "hidden" : undefined}
+            animate={motionEnabled ? "show" : undefined}
+            exit={motionEnabled ? "exit" : undefined}
             className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60]"
             onClick={onClose}
           >
             <motion.div
-              initial={motionEnabled ? { x: "100%" } : false}
-              animate={motionEnabled ? { x: 0 } : false}
-              exit={motionEnabled ? { x: "100%" } : false}
+              initial={motionEnabled ? { x: "100%" } : undefined}
+              animate={motionEnabled ? { x: 0 } : undefined}
+              exit={motionEnabled ? { x: "100%" } : undefined}
               transition={motionEnabled ? { type: "spring", damping: 25, stiffness: 200 } : undefined}
               onClick={(e) => e.stopPropagation()}
               className="absolute right-0 top-0 bottom-0 w-full max-w-2xl bg-dark-bg border-l border-neon-red/50 p-6 overflow-y-auto"

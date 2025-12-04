@@ -47,9 +47,9 @@ export function Gallery() {
           {selectedImage && (
             <motion.div
               variants={motionEnabled ? lightboxBackdrop : undefined}
-              initial={motionEnabled ? "hidden" : false}
-              animate={motionEnabled ? "show" : false}
-              exit={motionEnabled ? "exit" : false}
+              initial={motionEnabled ? "hidden" : undefined}
+              animate={motionEnabled ? "show" : undefined}
+              exit={motionEnabled ? "exit" : undefined}
               className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
             >
@@ -168,8 +168,8 @@ function GalleryItem({
         </div>
       </div>
         <motion.div
-          initial={motionEnabled ? { opacity: 0, y: 20 } : false}
-          animate={motionEnabled && isHovered ? { opacity: 1, y: 0 } : motionEnabled ? { opacity: 0, y: 20 } : {}}
+          initial={motionEnabled ? { opacity: 0, y: 20 } : undefined}
+          animate={motionEnabled && isHovered ? { opacity: 1, y: 0 } : motionEnabled ? { opacity: 0, y: 20 } : undefined}
           className="absolute inset-0 flex flex-col items-center justify-center p-4"
           style={isUpsideDown ? {
             background: "var(--bg-base)",
