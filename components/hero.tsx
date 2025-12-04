@@ -192,8 +192,13 @@ export function Hero() {
               }
             }}
             onClick={() => {
-              // Placeholder for resume download
-              window.open("/resume.pdf", "_blank");
+              // Download resume
+              const link = document.createElement("a");
+              link.href = "/Manav_Jaiswal_Resume.pdf";
+              link.download = "Manav_Jaiswal_Resume.pdf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
             }}
           >
             <Download className="mr-2 w-5 h-5" />
