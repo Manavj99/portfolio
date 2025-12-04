@@ -38,14 +38,14 @@ export const upsideDownPalette = {
 export const upsideDownTheme = {
   colors: {
     background: upsideDownPalette.bgBase,
-    backgroundSecondary: upsideDownPalette.bgGradientStart,
+    backgroundSecondary: upsideDownPalette.bgDeepPurple,
     panel: upsideDownPalette.surface,
     text: upsideDownPalette.textPrimary,
     textSecondary: upsideDownPalette.textSecondary,
-    accent: upsideDownPalette.accentPrimary,
-    accentSecondary: upsideDownPalette.accentSecondary,
+    accent: upsideDownPalette.accentRed,
+    accentSecondary: upsideDownPalette.accentPurple,
     border: upsideDownPalette.surfaceBorder,
-    glow: upsideDownPalette.accentGlowStrong,
+    glow: upsideDownPalette.glowStrong,
   },
   typography: {
     fontFamily: "Inter, sans-serif",
