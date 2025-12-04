@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+// Gallery component with cinematic animations
 import { motion, AnimatePresence } from "framer-motion";
 import { gallery } from "@/data/gallery";
 import { X } from "lucide-react";
